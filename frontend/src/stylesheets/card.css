@@ -1,0 +1,67 @@
+:root {
+  --dark-grey: #222;
+  --light-green: #c0caad;
+  --dark-green: #9da9a0;
+  --dark-rose: #654c4f;
+  --cooper: #b26e63;
+  --dark-khaki: #cec075;
+}
+
+.card {
+  flex: 0 1 30%;
+  background: white;
+  min-width: 300px;
+  margin-bottom: 2em;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(101, 76, 79, 0.2);
+  -moz-box-shadow: 5px 5px 15px 0px rgba(101, 76, 79, 0.2);
+  box-shadow: 5px 5px 15px 0px rgba(101, 76, 79, 0.2);
+}
+
+.card a {
+  color: black;
+  text-decoration: none;
+}
+
+.card-content {
+  padding: 1.4em;
+}
+
+.card-content h2 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.card-content p {
+  font-size: 80%;
+  margin-top: 10px;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  border-bottom: solid 1px #cec075;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  padding-left: 2px;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    var(--dark-khaki) 50%
+  );
+}
+
+.thumbnail img {
+  display: inline-block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.rating span {
+  margin: 0.1rem;
+  font-size: 0.8rem;
+}

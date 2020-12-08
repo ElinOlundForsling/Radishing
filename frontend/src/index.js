@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './stylesheets/style.css';
+import './stylesheets/gallery.css';
+import './stylesheets/card.css';
+import './stylesheets/navbar.css';
 import App from './App';
 
 ReactDOM.render(
