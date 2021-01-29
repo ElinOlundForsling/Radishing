@@ -1,115 +1,111 @@
 :root {
-	--height-lg-screens: 80px;
-	--bg-color-lg-screens: #484848;
-  }
-  
-  .Navbar {
-	display: flex;
-	justify-content: space-between;
-	/* by default: align-items: strech -> child elements' heights = the container's height */
-  
-	height: var(--height-lg-screens); /* set a fixed height */
-	background-color: var(--bg-color-lg-screens);
-  }
-  
-  .navbar-links {
-	display: flex;
-	/* align-items: stretch; by default */
-  }
-  
-  .navbar-home,
-  .navbar-link {
-	display: flex;
-	align-items: center; /* we want children to be centered vertically*/
-  
-	padding: 16px; /* with paddings on the sides */
-  }
-  
-  .navbar-home {
-	height: var(--height-lg-screens); /* it needs to stay inside the nav bar */
-	box-sizing: border-box;
-	
-  }
+  --height-lg-screens: 80px;
+  --bg-color-lg-screens: #484848;
+}
 
-  .navbar-home h2 {
-	color: #fff;
-	margin: 0;
-  }
-  
-  .navbar-link {
-	border-bottom: 2px solid var(--bg-color-lg-screens);
-  }
-  
-  .navbar-link:hover {
-	border-bottom-color: yellow;
-  }
-  
-  .toggle {
-	display: none;
-	padding: 8px;
-	font-size: 16px;
-  }
-  
-  .logo {
-	width: 34px;
-	height: 34px;
-  }
-  
-  /**
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  /* by default: align-items: strech -> child elements' heights = the container's height */
+
+  height: var(--height-lg-screens); /* set a fixed height */
+  background-color: var(--bg-color-lg-screens);
+}
+
+.navbar-links {
+  display: flex;
+  /* align-items: stretch; by default */
+}
+
+.navbar-home,
+.navbar-link {
+  display: flex;
+  align-items: center; /* we want children to be centered vertically*/
+
+  padding: 16px; /* with paddings on the sides */
+}
+
+.navbar-home {
+  height: var(--height-lg-screens); /* it needs to stay inside the nav bar */
+  box-sizing: border-box;
+}
+
+.navbar-home h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.navbar-link {
+  border-bottom: 2px solid var(--bg-color-lg-screens);
+}
+
+.navbar-link:hover {
+  border-bottom-color: yellow;
+}
+
+.toggle {
+  display: none;
+  padding: 8px;
+  font-size: 16px;
+  background-color: var(--bg-color-lg-screens);
+  border: none;
+}
+.toggle:active,
+.toggle:focus,
+.toggle:hover {
+  background-color: var(--bg-color-lg-screens) !important;
+  outline: none;
+}
+
+.logo {
+  width: 34px;
+  height: 34px;
+}
+
+/**
   *
   * Smaller screen + Mobile
   *
   */
-  @media screen and (max-width: 800px) {
-	.Navbar {
-	  flex-direction: column; /* change the direction of the container */
-  
-	  height: auto; /* overrides the height of 80px set for large screens */
-	  background-color: #484848;
-	}
-  
-	.navbar-links {
-	  flex-direction: column;
-	}
-  
-	.navbar-links.closed {
-	  /* when toggled, hide the main nav*/
-	  display: none;
-	}
-  
-	.toggle {
-	  display: block;
-	}
-  
-	.navbar-link {
-	  border-bottom: none;
-	}
+@media screen and (max-width: 800px) {
+  .Navbar {
+    flex-direction: column; /* change the direction of the container */
+
+    height: auto; /* overrides the height of 80px set for large screens */
+    background-color: #484848;
   }
-  
-  /* reset style */
-  body,
-  ul {
-	margin: 0;
-	padding: 0;
-	font-size: 14px;
+
+  .navbar-links {
+    flex-direction: column;
   }
-  
-  li {
-	list-style-type: none;
+
+  .navbar-links.closed {
+    /* when toggled, hide the main nav*/
+    display: none;
   }
-  
-  a {
-	text-decoration: none;
-	color: #fff;
+
+  .toggle {
+    display: block;
   }
-  
-  button {
-	background-color: transparent;
-	border: none;
+
+  .navbar-link {
+    border-bottom: none;
   }
-  
-  button:focus {
-	outline: 0;
-  }
-  
-  
+}
+
+/* reset style */
+body,
+ul {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.navbar-link a {
+  text-decoration: none;
+  color: #fff;
+}

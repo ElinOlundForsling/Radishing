@@ -1,0 +1,29 @@
+.product-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.product-image {
+  width: 40%;
+}
+
+.product-desc {
+  width: 60%;
+}
+
+.product-image img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .product-container {
+    flex-direction: column;
+  }
+
+  .product-desc,
+  .product-image {
+    width: 100%;
+  }
+}
