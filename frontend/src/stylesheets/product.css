@@ -27,3 +27,22 @@
     width: 100%;
   }
 }
+
+.product-desc input[type='number'] {
+  padding: 10px;
+  border: 1px solid;
+}
+
+.amount-button {
+  padding: 10px;
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em;
+  margin: 10px;
+}
+
+.cart-button {
+  padding: 12px 20px;
+  border-radius: 1.5em;
+  text-transform: uppercase;
+}

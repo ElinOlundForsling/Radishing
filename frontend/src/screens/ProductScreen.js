@@ -27,7 +27,7 @@ const ProductScreen = ({ match }) => {
           <h2>{product.name}</h2>
           <p>{product.description}</p>
           <button
-            className='fas fa-plus'
+            className='fas fa-plus amount-button'
             onClick={() =>
               setAmount(amount =>
                 amount < product.countInStock ? amount + 1 : amount,
@@ -41,11 +41,11 @@ const ProductScreen = ({ match }) => {
             onChange={handleChange}
           />
           <button
-            className='fas fa-minus'
+            className='fas fa-minus amount-button'
             onClick={() =>
               setAmount(amount => (amount > 1 ? amount - 1 : amount))
             }></button>
-          <button>Add to cart</button>
+          <button className='cart-button'>Add to cart</button>
           <Rating
             value={product.rating}
             text={`${product.numReviews} reviews`}
