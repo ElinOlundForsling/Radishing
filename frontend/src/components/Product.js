@@ -11,7 +11,7 @@ const Product = ({ product }) => {
         </picture>
         <div className='card-content'>
           <h2>{product.name}</h2>
-          <span class='card-price'>{product.price}</span>
+          <span className='card-price'>{product.price}</span>
           <p>
             <Rating
               value={product.rating}
