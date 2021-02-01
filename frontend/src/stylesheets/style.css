@@ -56,7 +56,7 @@ h6 {
   line-height: 1.1;
   font-family: 'Roboto Slab', serif;
   font-weight: 700;
-  margin-top: 3rem;
+  margin-top: 2rem;
   margin-bottom: 1.5rem;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -81,18 +81,22 @@ h2 {
 
 h3 {
   font-size: 1.75em;
+  font-weight: 400;
 }
 
 h4 {
   font-size: 1.5em;
+  font-weight: 400;
 }
 
 h5 {
   font-size: 1.25em;
+  font-weight: 400;
 }
 
 h6 {
   font-size: 1em;
+  font-weight: 400;
 }
 
 p {
@@ -107,7 +111,10 @@ sup {
 }
 
 hr {
-  border-color: #2c8898;
+  border-bottom: 0px;
+  border-top: 1px solid #dddddd;
+  border-left: 0px;
+  border-right: 0px;
 }
 
 a {

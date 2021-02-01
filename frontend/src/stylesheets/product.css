@@ -28,6 +28,20 @@
   }
 }
 
+.product-stock {
+  font-family: 'Roboto Slab';
+  width: fit-content;
+  padding-right: 5px;
+  margin-bottom: 0px;
+  text-indent: 10px;
+  border-bottom: solid 1px #cec075;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 70%,
+    var(--dark-khaki) 30%
+  );
+}
+
 .product-desc input[type='number'] {
   padding: 10px;
   border: 1px solid;
