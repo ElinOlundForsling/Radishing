@@ -19,7 +19,7 @@ const HomeScreen = () => {
       <h1>Latest Products</h1>
       <section className='card-container'>
         {products.map(product => (
-          <article class='card' key={product._id}>
+          <article className='card' key={product._id}>
             <Product product={product} />
           </article>
         ))}
