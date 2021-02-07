@@ -12,7 +12,7 @@ const Alert = ({ color, expire, children }) => {
         setVisible(false);
       }, expire);
     }
-  }, []);
+  }, [expire]);
 
   return visible && <div className={`alert alert-${color}`}>{children}</div>;
 };

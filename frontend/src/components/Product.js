@@ -12,12 +12,12 @@ const Product = ({ product }) => {
         <div className='card-content'>
           <h2>{product.name}</h2>
           <span className='card-price'>{product.price}</span>
-          <p>
+          <div className='rating-container'>
             <Rating
               value={product.rating}
               text={`${product.numReviews} reviews`}
             />
-          </p>
+          </div>
         </div>
       </Link>
     </>

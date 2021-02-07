@@ -16,7 +16,7 @@ const Header = () => {
       </div>
       <ul className={'navbar-links ' + (open ? 'opened' : 'closed')}>
         <li className='navbar-link'>
-          <Link to='.'>
+          <Link to='/cart'>
             <i className='fas fa-shopping-cart'></i> Cart
           </Link>
         </li>
