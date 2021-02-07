@@ -1,0 +1,24 @@
+.alert {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.alert-yellow {
+  background-color: var(--dark-khaki);
+}
+
+.alert-blue {
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.alert-red {
+  background-color: var(--cooper);
+  color: #fff;
+}
+
+.alert-green {
+  background-color: var(--light-green);
+}
