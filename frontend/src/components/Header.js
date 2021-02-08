@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import MenuDropdown from './MenuDropdown';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
 
   return (
     <nav className='Navbar'>
@@ -20,11 +24,14 @@ const Header = () => {
             <i className='fas fa-shopping-cart'></i> Cart
           </Link>
         </li>
-        <li className='navbar-link'>
-          <Link to='.'>
-            <i className='fas fa-user'></i> Sign In
-          </Link>
-        </li>
+        {!userInfo && (
+          <li className='navbar-link'>
+            <Link to='/login'>
+              <i className='fas fa-user'></i> Sign In
+            </Link>
+          </li>
+        )}
+        <MenuDropdown />
       </ul>
     </nav>
   );

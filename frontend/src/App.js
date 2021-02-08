@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import AboutScreen from './screens/AboutScreen';
+import LoginScreen from './screens/LoginScreen';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <div id='container'>
         <main>
           <Route path='/' component={HomeScreen} exact />
+          <Route path='/login' component={LoginScreen} exact />
           <Route path='/products/:id' component={ProductScreen} />
           <Route path='/cart/:id?' component={CartScreen} />
           <Route path='/about' component={AboutScreen} exact />

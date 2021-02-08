@@ -46,7 +46,7 @@ const ProductScreen = ({ history, match }) => {
           <section className='product-desc'>
             <h2>{product.name}</h2>
             <Rating
-              value={product.rating}
+              value={product.rating || 0}
               text={`${product.numReviews} reviews`}
             />
             <hr />
