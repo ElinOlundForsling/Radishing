@@ -28,7 +28,7 @@ const CartScreen = ({ match, location, history }) => {
       <section className='cart-list'>
         {cartItems.length < 1 ? (
           <Alert color='yellow' expire={0}>
-            No items in cart
+            No items in cart. <Link to='/'>Go back</Link>
           </Alert>
         ) : (
           cartItems.map(item => {
