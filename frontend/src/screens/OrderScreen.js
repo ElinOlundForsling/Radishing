@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Alert';
 import Spinner from '../components/Spinner';
@@ -46,9 +47,9 @@ const OrderScreen = ({ match, history }) => {
       document.body.appendChild(script);
     };
 
-    addPayPalScript();
-
     if (!order || successPay || order._id !== orderId) {
+      dispatch({ type: ORDER_PAY_RESET });
+      dispatch({ type: ORDER_DELIVER_RESET });
       dispatch(getOrderDetails(orderId));
     } else if (!order.isPaid) {
       if (!window.paypal) {
@@ -64,6 +65,11 @@ const OrderScreen = ({ match, history }) => {
       history.push('/login');
     }
   });
+
+  const handleSuccess = paymentResult => {
+    console.log(paymentResult);
+    dispatch(payOrder(orderId, paymentResult));
+  };
 
   return (
     <>
@@ -95,9 +101,13 @@ const OrderScreen = ({ match, history }) => {
                 {order.shippingAddress.address},{' '}
                 {order.shippingAddress.postcode} {order.shippingAddress.city}{' '}
                 {order.shippingAddress.extra}
-                {!order.isDelivered && (
+                {order.isDelivered ? (
+                  <Alert color='green' expire={0}>
+                    Skickad
+                  </Alert>
+                ) : (
                   <Alert color='red' expire={0}>
-                    Not delivered
+                    Inte skickad
                   </Alert>
                 )}
                 <hr />
@@ -105,9 +115,13 @@ const OrderScreen = ({ match, history }) => {
               <article>
                 <h4>Betalning</h4>
                 <b>Betalningsmetod:</b> {order.paymentMethod}
-                {!order.isPaid && (
+                {order.isPaid ? (
+                  <Alert color='green' expire={0}>
+                    Betalad den {order.paidAt}
+                  </Alert>
+                ) : (
                   <Alert color='red' expire={0}>
-                    Not Paid
+                    Inte betalad
                   </Alert>
                 )}
                 <hr />
@@ -151,6 +165,21 @@ const OrderScreen = ({ match, history }) => {
                     <th>Totalt</th>
                     <td>{order.totalPrice}kr</td>
                   </tr>
+                  {!order.isPaid && (
+                    <tr>
+                      <td colSpan='2'>
+                        {loadingPay && <Spinner />}
+                        {!sdkReady ? (
+                          <Spinner />
+                        ) : (
+                          <PayPalButton
+                            amount={order.totalPrice}
+                            onSuccess={handleSuccess}
+                          />
+                        )}
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </section>
