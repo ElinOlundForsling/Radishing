@@ -9,6 +9,7 @@ import './stylesheets/card.css';
 import './stylesheets/navbar.css';
 import './stylesheets/product.css';
 import './stylesheets/cart.css';
+import './stylesheets/profile.css';
 import './stylesheets/spinner.css';
 import './stylesheets/alert.css';
 import App from './App';

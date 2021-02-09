@@ -1,0 +1,35 @@
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.profile-update {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-update form {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-update input,
+button {
+  padding: 10px;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.05rem;
+  max-width: 500px;
+  width: 100%;
+}
+
+.profile-orders {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
