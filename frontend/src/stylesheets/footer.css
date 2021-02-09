@@ -25,4 +25,10 @@
 
 .footer section {
   font-size: small;
+  flex-basis: 1;
+}
+
+footer i {
+  font-size: 1rem;
+  margin: 5px;
 }

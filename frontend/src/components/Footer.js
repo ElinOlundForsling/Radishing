@@ -8,8 +8,8 @@ const Footer = () => {
         <h5>Öppettider</h5>
         <ul>
           <li>Plantskolan är stäng för säsongen!</li>
-          <li>Du fortfarande beställa</li>
-          <li>Copyright &copy;</li>
+          <li>Vi öppnar igen våren 2021</li>
+          <li>Du kan fortfarande beställa växter</li>
         </ul>
       </section>
       <section>
@@ -35,12 +35,16 @@ const Footer = () => {
         </ul>
         <div>
           <a href='https://www.facebook.com/Torvan-Tr%C3%A4dg%C3%A5rd-359977417368546'>
-            <i class='fab fa-facebook'></i>
+            <i className='fab fa-facebook'></i>
           </a>
           <a href='https://www.instagram.com/torvan_tradgard/?hl=en'>
-            <i class='fab fa-instagram'></i>
+            <i className='fab fa-instagram'></i>
+          </a>
+          <a href='http://torvans.blogspot.com/'>
+            <i className='fab fa-blogger-b'></i>
           </a>
         </div>
+        <p>&copy; 2021 Pia Myrberg</p>
       </section>
     </footer>
   );
