@@ -1,0 +1,10 @@
+.checkout-steps {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.checkout-steps i {
+  margin-top: 3px;
+  font-size: 1rem;
+}

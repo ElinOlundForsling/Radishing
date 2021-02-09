@@ -6,6 +6,7 @@ import './stylesheets/style.css';
 import './stylesheets/gallery.css';
 import './stylesheets/login.css';
 import './stylesheets/card.css';
+import './stylesheets/checkoutSteps.css';
 import './stylesheets/footer.css';
 import './stylesheets/navbar.css';
 import './stylesheets/product.css';

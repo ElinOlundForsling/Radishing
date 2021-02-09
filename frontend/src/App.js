@@ -5,8 +5,10 @@ import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
-import ProfileScreen from './screens/ProfileScreen';
 import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import AboutScreen from './screens/AboutScreen';
@@ -24,7 +26,9 @@ const App = () => {
         <Route path='/register' component={RegisterScreen} exact />
         <Route path='/products/:id' component={ProductScreen} />
         <Route path='/cart/:id?' component={CartScreen} />
-        <Route path='/shipping' component={ShippingScreen} />
+        <Route path='/shipping' component={ShippingScreen} exact />
+        <Route path='/payment' component={PaymentScreen} exact />
+        <Route path='/placeorder' component={PlaceOrderScreen} exact />
         <Route path='/about' component={AboutScreen} exact />
         <Route path='/map' component={MapScreen} exact />
         <Route path='/privacy' component={PrivacyScreen} exact />

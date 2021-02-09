@@ -12,7 +12,7 @@ const Header = () => {
     <nav className='Navbar'>
       <div className='navbar-home'>
         <Link to='/'>
-          <h2>Radishing</h2>
+          <h2>Torvan</h2>
         </Link>
         <button className='toggle' onClick={() => setOpen(open => !open)}>
           <i className={'fas ' + (open ? 'fa-angle-up' : 'fa-angle-down')} />

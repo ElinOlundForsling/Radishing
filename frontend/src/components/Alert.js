@@ -8,9 +8,12 @@ const Alert = ({ color, expire, children }) => {
       setVisible(true);
     } else {
       setVisible(true);
-      window.setTimeout(() => {
+      const timer = window.setTimeout(() => {
         setVisible(false);
       }, expire);
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [expire]);
 
