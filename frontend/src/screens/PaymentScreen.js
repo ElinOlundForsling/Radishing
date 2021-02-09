@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps';
 import { savePaymentMethod } from '../actions/cartActions';
 import Alert from '../components/Alert';
-import useTimeout from '../hooks/useTimeout';
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector(state => state.cart);

@@ -37,9 +37,9 @@ const CartScreen = ({ match, location, history }) => {
         )}
       </section>
       <section className='cart-checkout'>
-        <h2>
+        <h3>
           Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items:
-        </h2>
+        </h3>
         <p>
           {cartItems
             .reduce((acc, item) => acc + item.qty * item.price, 0)

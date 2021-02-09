@@ -11,6 +11,7 @@ import './stylesheets/footer.css';
 import './stylesheets/navbar.css';
 import './stylesheets/product.css';
 import './stylesheets/cart.css';
+import './stylesheets/placeorder.css';
 import './stylesheets/profile.css';
 import './stylesheets/spinner.css';
 import './stylesheets/alert.css';

@@ -61,27 +61,27 @@ const MenuDropdown = () => {
         break;
     }
   };
-  const handleClick = e => {
-    if (
-      (profileDD.current && profileDD.current.contains(e.target)) ||
-      (adminDD.current && adminDD.current.contains(e.target))
-    ) {
-      return;
-    }
-    handleClickOutside();
-  };
-
-  const handleClickOutside = () => {
-    setActiveFilterDD(null);
-  };
 
   useEffect(() => {
+    const handleClick = e => {
+      if (
+        (profileDD.current && profileDD.current.contains(e.target)) ||
+        (adminDD.current && adminDD.current.contains(e.target))
+      ) {
+        return;
+      }
+      handleClickOutside();
+    };
+
+    const handleClickOutside = () => {
+      setActiveFilterDD(null);
+    };
     document.addEventListener('mousedown', handleClick, false);
 
     return function cleanup() {
       document.removeEventListener('mousedown', handleClick, false);
     };
-  }, [handleClick]);
+  }, []);
 
   return (
     <div className='dropdown-wrapper'>
