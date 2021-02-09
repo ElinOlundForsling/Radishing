@@ -45,7 +45,7 @@
 }
 
 .cart-name {
-  font-family: 'Roboto Slab', serif;
+  font-family: var(--headlines);
   font-size: 1rem;
   font-weight: 400;
   margin: 0px;
@@ -68,7 +68,7 @@
 }
 
 .cart-price {
-  font-family: 'Roboto Slab', serif;
+  font-family: var(--headlines);
   font-size: 1rem;
   font-weight: 400;
   margin: 0px;

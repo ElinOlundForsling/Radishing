@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--mid-grey);
+  margin: 0px;
+  height: 100px;
+  flex-shrink: 0;
+  color: #f1f1f1;
+  padding: 10px;
+}
+
+.footer h5 {
+  margin-block-start: 0px;
+  margin-inline-start: 0px;
+}
+
+.footer a {
+  color: var(--dark-green);
+}
+
+.footer a:hover {
+  color: var(--dark-khaki);
+}
+
+.footer section {
+  font-size: small;
+}

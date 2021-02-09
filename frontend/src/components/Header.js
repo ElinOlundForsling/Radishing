@@ -20,6 +20,11 @@ const Header = () => {
       </div>
       <ul className={'navbar-links ' + (open ? 'opened' : 'closed')}>
         <li className='navbar-link'>
+          <a href='http://torvans.blogspot.com/'>
+            <i className='fab fa-blogger-b'></i> Blog
+          </a>
+        </li>
+        <li className='navbar-link'>
           <Link to='/cart'>
             <i className='fas fa-shopping-cart'></i> Cart
           </Link>

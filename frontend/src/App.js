@@ -5,27 +5,30 @@ import Footer from './components/Footer';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
-import AboutScreen from './screens/AboutScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ShippingScreen from './screens/ShippingScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import AboutScreen from './screens/AboutScreen';
+import PrivacyScreen from './screens/PrivacyScreen';
+import MapScreen from './screens/MapScreen';
 
 const App = () => {
   return (
     <Router>
       <Header />
-      <div id='container'>
-        <main>
-          <Route path='/' component={HomeScreen} exact />
-          <Route path='/login' component={LoginScreen} exact />
-          <Route path='/profile' component={ProfileScreen} exact />
-          <Route path='/register' component={RegisterScreen} exact />
-          <Route path='/products/:id' component={ProductScreen} />
-          <Route path='/cart/:id?' component={CartScreen} />
-          <Route path='/about' component={AboutScreen} exact />
-        </main>
-      </div>
+      <main className='main'>
+        <Route path='/' component={HomeScreen} exact />
+        <Route path='/login' component={LoginScreen} exact />
+        <Route path='/profile' component={ProfileScreen} exact />
+        <Route path='/register' component={RegisterScreen} exact />
+        <Route path='/products/:id' component={ProductScreen} />
+        <Route path='/cart/:id?' component={CartScreen} />
+        <Route path='/shipping' component={ShippingScreen} />
+        <Route path='/about' component={AboutScreen} exact />
+        <Route path='/map' component={MapScreen} exact />
+        <Route path='/privacy' component={PrivacyScreen} exact />
+      </main>
 
       <Footer />
     </Router>

@@ -21,7 +21,7 @@
 .profile-update input,
 button {
   padding: 10px;
-  font-family: 'Nunito', sans-serif;
+  font-family: var(--main-text);
   letter-spacing: 0.05rem;
   max-width: 500px;
   width: 100%;

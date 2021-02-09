@@ -29,7 +29,7 @@
 }
 
 .product-stock {
-  font-family: 'Roboto Slab';
+  font-family: var(--headlines);
   width: fit-content;
   padding-right: 5px;
   margin-bottom: 0px;
