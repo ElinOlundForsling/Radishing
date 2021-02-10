@@ -17,6 +17,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState('');
   const [message, setMessage] = useState('');
+  const [uploading, setUploading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -47,6 +48,30 @@ const ProductEditScreen = ({ match, history }) => {
       }
     }
   }, [dispatch, history, productId, product, successUpdate]);
+
+  const handleUpload = async e => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      };
+
+      const { data } = await axios.post('/api/upload', formData, config);
+
+      setImage(data);
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      setMessage('Something went wrong');
+      setUploading(false);
+    }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -96,14 +121,18 @@ const ProductEditScreen = ({ match, history }) => {
             autoComplete='on'
             onChange={e => setPrice(e.target.value)}
           />
-          <input
-            type='text'
-            name='image'
-            value={image}
-            placeholder='Image'
-            autoComplete='on'
-            onChange={e => setImage(e.target.value)}
-          />
+          <div
+            class='file-upload-wrapper'
+            data-text={image ? image : 'Select image!'}>
+            <input
+              name='file-upload-field'
+              type='file'
+              class='file-upload-field'
+              value=''
+              onChange={handleUpload}
+            />
+          </div>
+          {uploading && <Spinner />}
           <input
             type='text'
             name='category'
