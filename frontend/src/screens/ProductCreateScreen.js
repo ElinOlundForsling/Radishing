@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Alert';
 import Spinner from '../components/Spinner';
-import { listProductDetails, updateProduct } from '../actions/productActions';
+import { createProduct } from '../actions/productActions';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 
-const ProductEditScreen = ({ match, history }) => {
-  const productId = match.params.id;
-
+const ProductCreateScreen = ({ match, history }) => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState('');
@@ -23,36 +21,24 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
 
-  const productUpdate = useSelector(state => state.productUpdate);
+  const productCreate = useSelector(state => state.productCreate);
   const {
-    loading: loadingUpdate,
-    error: errorUpdate,
-    success: successUpdate,
-  } = productUpdate;
+    loading: loadingCreate,
+    error: errorCreate,
+    success: successCreate,
+  } = productCreate;
 
   useEffect(() => {
-    if (successUpdate) {
+    if (successCreate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });
       history.push('/admin/productlist');
-    } else {
-      if (!product.name || product._id !== productId) {
-        dispatch(listProductDetails(productId));
-      } else {
-        setName(product.name);
-        setPrice(product.price);
-        setImage(product.image);
-        setCategory(product.category);
-        setCountInStock(product.countInStock);
-        setDescription(product.description);
-      }
     }
-  }, [dispatch, history, productId, product, successUpdate]);
+  }, [dispatch, history, successCreate]);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(
-      updateProduct({
-        _id: productId,
+      createProduct({
         name,
         price,
         image,
@@ -67,7 +53,7 @@ const ProductEditScreen = ({ match, history }) => {
     <div className='login-container'>
       <div className='login-wrapper'>
         <Link to='/admin/productList'>Go back</Link>
-        <h2>Edit Product</h2>
+        <h2>Create Product</h2>
         {message && (
           <Alert color='red' expire={4000}>
             {message}
@@ -129,11 +115,11 @@ const ProductEditScreen = ({ match, history }) => {
             onChange={e => setCountInStock(e.target.value)}
           />
 
-          <button onClick={handleSubmit}>UPDATE</button>
+          <button onClick={handleSubmit}>CREATE PRODUCT</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default ProductEditScreen;
+export default ProductCreateScreen;
