@@ -1,0 +1,11 @@
+.admin-icon-buttons button {
+  background-color: transparent;
+  color: var(--blue);
+  width: fit-content;
+  border: none;
+}
+
+.admin-icon-buttons button:hover {
+  background-color: transparent;
+  color: var(--dark-green);
+}

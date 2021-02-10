@@ -56,6 +56,13 @@ const MenuDropdown = () => {
         break;
       case 'admin-dd':
         setAdminSelect(obj);
+        if (obj.value === 'users') {
+          document.location.href = '/admin/userlist';
+        } else if (obj.value === 'products') {
+          document.location.href = '/admin/productlist';
+        } else if (obj.value === 'orders') {
+          document.location.href = '/admin/orderlist';
+        }
         break;
       default:
         break;

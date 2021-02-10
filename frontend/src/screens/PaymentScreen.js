@@ -44,7 +44,7 @@ const PaymentScreen = ({ history }) => {
             {message}
           </Alert>
         )}
-        <label className='radiobutton radiobutton--radio'>
+        <label className='checker checker--radio'>
           Betala vid hämtning
           <input
             type='radio'
@@ -52,9 +52,9 @@ const PaymentScreen = ({ history }) => {
             value='Pickup'
             onChange={e => setPaymentMethod(e.target.value)}
           />
-          <div className='radiobutton__indicator'></div>
+          <div className='checker__indicator'></div>
         </label>
-        <label className='radiobutton radiobutton--radio'>
+        <label className='checker checker--radio'>
           Betala med Paypal
           <input
             type='radio'
@@ -62,12 +62,12 @@ const PaymentScreen = ({ history }) => {
             value='PayPal'
             onChange={e => setPaymentMethod(e.target.value)}
           />
-          <div className='radiobutton__indicator'></div>
+          <div className='checker__indicator'></div>
         </label>
-        <label className='radiobutton radiobutton--radio'>
+        <label className='checker checker--radio'>
           Betala med kort (kommer snart)
           <input type='radio' name='radio2' disabled='disabled' />
-          <div className='radiobutton__indicator'></div>
+          <div className='checker__indicator'></div>
         </label>
         <form onSubmit={handleSubmit}>
           <button onClick={handleSubmit}>Fortsätt</button>

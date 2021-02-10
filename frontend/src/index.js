@@ -15,6 +15,7 @@ import './stylesheets/placeorder.css';
 import './stylesheets/profile.css';
 import './stylesheets/spinner.css';
 import './stylesheets/alert.css';
+import './stylesheets/admin.css';
 import App from './App';
 
 ReactDOM.render(

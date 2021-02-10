@@ -12,6 +12,8 @@
   --headlines: 'Roboto Slab', serif;
 }
 
+/* bg (f9f9f9), bg2(f1f1f1) white (ffffff), dark (4a4a4a), link (2c8898), link hover (35A5B8), dark link (2c8898), dark link hover (35A5B8), danger, info, success, highlight */
+
 #root {
   height: 100%;
   display: flex;
@@ -280,7 +282,7 @@ fieldset {
   width: 100%;
 }
 
-.radiobutton {
+.checker {
   display: block;
   position: relative;
   padding-left: 30px;
@@ -288,12 +290,12 @@ fieldset {
   cursor: pointer;
   text-align: left;
 }
-.radiobutton input {
+.checker input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-.radiobutton__indicator {
+.checker__indicator {
   position: absolute;
   top: 2px;
   left: 0;
@@ -301,34 +303,46 @@ fieldset {
   width: 20px;
   background: #e6e6e6;
 }
-.radiobutton--radio .radiobutton__indicator {
+.checker--radio .checker__indicator {
   border-radius: 50%;
 }
-.radiobutton:hover input ~ .radiobutton__indicator,
-.radiobutton input:focus ~ .radiobutton__indicator {
+.checker:hover input ~ .checker__indicator,
+.checker input:focus ~ .checker__indicator {
   background: #ccc;
 }
-.radiobutton input:checked ~ .radiobutton__indicator {
+.checker input:checked ~ .checker__indicator {
   background: #2aa1c0;
 }
-.radiobutton:hover input:not([disabled]):checked ~ .radiobutton__indicator,
-.radiobutton input:checked:focus ~ .radiobutton__indicator {
+.checker:hover input:not([disabled]):checked ~ .checker__indicator,
+.checker input:checked:focus ~ .checker__indicator {
   background: #0e647d;
 }
-.radiobutton input:disabled ~ .radiobutton__indicator {
+.checker input:disabled ~ .checker__indicator {
   background: #e6e6e6;
   opacity: 0.5;
   pointer-events: none;
 }
-.radiobutton__indicator:after {
+.checker__indicator:after {
   content: '';
   position: absolute;
   display: none;
 }
-.radiobutton input:checked ~ .radiobutton__indicator:after {
+.checker input:checked ~ .checker__indicator:after {
   display: block;
 }
-.radiobutton--radio .radiobutton__indicator:after {
+.checker--checkbox .checker__indicator:after {
+  left: 8px;
+  top: 4px;
+  width: 3px;
+  height: 8px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checker--checkbox input:disabled ~ .checker__indicator:after {
+  border-color: #7b7b7b;
+}
+.checker--radio .checker__indicator:after {
   left: 7px;
   top: 7px;
   height: 6px;
@@ -336,6 +350,6 @@ fieldset {
   border-radius: 50%;
   background: #fff;
 }
-.radiobutton--radio input:disabled ~ .radiobutton__indicator:after {
+.checker--radio input:disabled ~ .checker__indicator:after {
   background: #7b7b7b;
 }
