@@ -4,7 +4,11 @@ import { PayPalButton } from 'react-paypal-button-v2';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Alert';
 import Spinner from '../components/Spinner';
-import { getOrderDetails, payOrder } from '../actions/orderActions';
+import {
+  getOrderDetails,
+  payOrder,
+  deliverOrder,
+} from '../actions/orderActions';
 import {
   ORDER_PAY_RESET,
   ORDER_DELIVER_RESET,
@@ -28,13 +32,30 @@ const OrderScreen = ({ match, history }) => {
 
   const orderDetails = useSelector(state => state.orderDetails);
   const { order, loading, error } = orderDetails;
+
   const orderPay = useSelector(state => state.orderPay);
   const { loading: loadingPay, success: successPay } = orderPay;
+
+  const orderDeliver = useSelector(state => state.orderDeliver);
+  const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
 
+  if (!loading) {
+    const addDecimals = num => {
+      return (Math.round(num * 100) / 100).toFixed(2);
+    };
+
+    order.itemsPrice = addDecimals(
+      order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0),
+    );
+  }
+
   useEffect(() => {
+    if (!userInfo) {
+      history.push('/login');
+    }
     const addPayPalScript = async () => {
       const { data: clientId } = await axios.get('/api/config/paypal');
       const script = document.createElement('script');
@@ -47,7 +68,7 @@ const OrderScreen = ({ match, history }) => {
       document.body.appendChild(script);
     };
 
-    if (!order || successPay || order._id !== orderId) {
+    if (!order || successPay || successDeliver || order._id !== orderId) {
       dispatch({ type: ORDER_PAY_RESET });
       dispatch({ type: ORDER_DELIVER_RESET });
       dispatch(getOrderDetails(orderId));
@@ -58,17 +79,15 @@ const OrderScreen = ({ match, history }) => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, successPay, order, orderId]);
-
-  useEffect(() => {
-    if (!userInfo) {
-      history.push('/login');
-    }
-  });
+  }, [dispatch, successPay, successDeliver, order, orderId]);
 
   const handleSuccess = paymentResult => {
     console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
+  };
+
+  const handleDeliver = () => {
+    dispatch(deliverOrder(order));
   };
 
   return (
@@ -165,7 +184,7 @@ const OrderScreen = ({ match, history }) => {
                     <th>Totalt</th>
                     <td>{order.totalPrice}kr</td>
                   </tr>
-                  {!order.isPaid && (
+                  {order.user._id === userInfo._id && !order.isPaid && (
                     <tr>
                       <td colSpan='2'>
                         {loadingPay && <Spinner />}
@@ -180,6 +199,16 @@ const OrderScreen = ({ match, history }) => {
                       </td>
                     </tr>
                   )}
+                  {userInfo &&
+                    userInfo.isAdmin &&
+                    order.isPaid &&
+                    !order.isDelivered && (
+                      <div>
+                        <button type='button' onClick={handleDeliver}>
+                          Mark As Delivered
+                        </button>
+                      </div>
+                    )}
                 </tbody>
               </table>
             </section>
