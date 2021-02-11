@@ -124,7 +124,36 @@
   display: block;
 }
 
+.searchbox,
+.searchbox form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbox button,
+.searchbox input {
+  height: 40px;
+  padding: 10px;
+  margin: 0px;
+}
+
+.searchbox input {
+  background-color: #f1f1f1;
+  border-radius: 5px 0px 0px 5px;
+  font-family: var(--text-main);
+}
+
+.searchbox button {
+  border-radius: 0px 5px 5px 0px;
+}
+
 @media screen and (max-width: 800px) {
+  .searchbox {
+    display: none;
+  }
+
   .Navbar {
     flex-direction: column;
     height: auto;

@@ -5,19 +5,23 @@ import { listProducts } from '../actions/productActions';
 import Spinner from '../components/Spinner';
 import Alert from '../components/Alert';
 
-const HomeScreen = () => {
+const HomeScreen = ({ match }) => {
+  const keyword = match.params.keyword;
   const dispatch = useDispatch();
 
   const productList = useSelector(state => state.productList);
   const { loading, error, products } = productList;
 
   useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+    dispatch(listProducts(keyword));
+  }, [dispatch, keyword]);
 
   return (
     <>
-      <h1>Latest Products</h1>
+      <h1>{keyword ? 'Search result' : 'Latest Products'}</h1>
+      {keyword && products.length === 0 && (
+        <p>No products matches your search</p>
+      )}
       {loading ? (
         <Spinner />
       ) : error ? (

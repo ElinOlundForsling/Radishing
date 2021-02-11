@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MenuDropdown from './MenuDropdown';
+import Searchbox from './Searchbox';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -18,6 +20,7 @@ const Header = () => {
           <i className={'fas ' + (open ? 'fa-angle-up' : 'fa-angle-down')} />
         </button>
       </div>
+      <Route render={({ history }) => <Searchbox history={history} />} />
       <ul className={'navbar-links ' + (open ? 'opened' : 'closed')}>
         <li className='navbar-link'>
           <a href='http://torvans.blogspot.com/'>
