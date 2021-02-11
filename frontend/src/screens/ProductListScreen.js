@@ -4,12 +4,14 @@ import Spinner from '../components/Spinner';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts, deleteProduct } from '../actions/productActions';
 import { Link } from 'react-router-dom';
+import Pagination from '../components/Pagination';
 
-const ProductListScreen = ({ history }) => {
+const ProductListScreen = ({ history, match }) => {
+  const pageNumber = match.params.pageNumber || 1;
   const dispatch = useDispatch();
 
   const productList = useSelector(state => state.productList);
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
@@ -19,11 +21,11 @@ const ProductListScreen = ({ history }) => {
 
   useEffect(() => {
     if (userInfo && userInfo.isAdmin) {
-      dispatch(listProducts());
+      dispatch(listProducts('', pageNumber));
     } else {
       history.push('/login');
     }
-  }, [dispatch, history, successDelete, userInfo]);
+  }, [dispatch, history, successDelete, userInfo, pageNumber]);
 
   const handleDelete = id => {
     if (window.confirm('Are you sure?')) {
@@ -33,10 +35,12 @@ const ProductListScreen = ({ history }) => {
 
   return (
     <>
-      <h1>Products</h1>
-      <Link to='/admin/product/create'>
-        <button>Create Product</button>
-      </Link>
+      <div className='product-header'>
+        <h1>Products</h1>
+        <Link to='/admin/product/create'>
+          <button className='create-product'>Create Product</button>
+        </Link>
+      </div>
       {loading ? (
         <Spinner />
       ) : error ? (
@@ -82,6 +86,7 @@ const ProductListScreen = ({ history }) => {
           </tbody>
         </table>
       )}
+      <Pagination page={page} pages={pages} isAdmin={true} keyword='' />
     </>
   );
 };

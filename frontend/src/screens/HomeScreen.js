@@ -4,17 +4,19 @@ import Product from '../components/Product';
 import { listProducts } from '../actions/productActions';
 import Spinner from '../components/Spinner';
 import Alert from '../components/Alert';
+import Pagination from '../components/Pagination';
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
+  const pageNumber = match.params.pageNumber || 1;
   const dispatch = useDispatch();
 
   const productList = useSelector(state => state.productList);
-  const { loading, error, products } = productList;
+  const { loading, error, products, page, pages } = productList;
 
   useEffect(() => {
-    dispatch(listProducts(keyword));
-  }, [dispatch, keyword]);
+    dispatch(listProducts(keyword, pageNumber));
+  }, [dispatch, keyword, pageNumber]);
 
   return (
     <>
@@ -29,13 +31,21 @@ const HomeScreen = ({ match }) => {
           Error: {error}
         </Alert>
       ) : (
-        <section className='card-container'>
-          {products.map(product => (
-            <article className='card' key={product._id}>
-              <Product product={product} />
-            </article>
-          ))}
-        </section>
+        <div>
+          <section className='card-container'>
+            {products.map(product => (
+              <article className='card' key={product._id}>
+                <Product product={product} />
+              </article>
+            ))}
+          </section>
+          <Pagination
+            page={page}
+            pages={pages}
+            isAdmin={false}
+            keyword={keyword ? keyword : ''}
+          />
+        </div>
       )}
     </>
   );

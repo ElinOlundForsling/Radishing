@@ -1,0 +1,25 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+}
+
+.pagination a {
+  margin: 10px;
+}
+
+.pagination button {
+  padding: 10px 20px;
+  border: 2px solid var(--blue);
+  background-color: transparent;
+  color: var(--blue);
+}
+
+.pagination button:hover {
+  border: 2px solid var(--dark-green);
+  background-color: var(--dark-green);
+}
+
+.pagination button:hover:disabled {
+  border: 2px solid var(--dark-green);
+  background-color: transparent;
+}

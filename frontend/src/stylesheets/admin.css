@@ -9,3 +9,16 @@
   background-color: transparent;
   color: var(--dark-green);
 }
+
+.product-header {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-header button {
+  padding: 15px 30px;
+}
