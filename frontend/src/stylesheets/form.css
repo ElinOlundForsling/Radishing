@@ -1,37 +1,49 @@
-.login-container {
+.form-container {
   display: flex;
   width: 100%;
   height: 100%;
   justify-content: center;
-  align-content: center;
 }
 
-.login-wrapper {
+.form-wrapper {
   display: flex;
   flex-direction: column;
   min-width: 50%;
-  justify-content: center;
-  align-content: center;
   text-align: center;
 }
 
-.login-wrapper form {
+.form-center {
+  align-content: center;
+  justify-content: center;
+}
+
+.form-wrapper form {
   display: flex;
   flex-direction: column;
 }
 
-.login-wrapper p {
+.form-wrapper p {
   margin: 10px;
 }
 
-.login-wrapper input {
+.form-wrapper input,
+.form-wrapper textarea {
   padding: 10px;
   font-family: var(--main-text);
   letter-spacing: 0.05rem;
   min-width: 300px;
 }
 
-.login-wrapper button {
+.form-wrapper textarea {
+  height: 150px;
+}
+
+.form-wrapper label {
+  text-align: left;
+  text-indent: 1em;
+}
+
+.form-wrapper button {
   padding: 10px;
   min-width: 300px;
 }

@@ -1,7 +1,17 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: 90%;
+  padding: 2em;
+  margin: auto;
+}
+
 .card {
-  flex: 0 1 30%;
+  flex: 0 1 22%;
   background: var(--bg-card);
-  min-width: 300px;
+  min-width: 250px;
   margin-bottom: 2em;
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 15px 0px rgba(101, 76, 79, 0.2);
@@ -54,6 +64,7 @@
   border: 0;
   width: 100%;
   height: auto;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .rating span {

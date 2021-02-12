@@ -11,6 +11,7 @@ const adminMenu = [
   { value: 'users', label: 'Users' },
   { value: 'products', label: 'Products' },
   { value: 'orders', label: 'Orders' },
+  { value: 'text', label: 'Text' },
 ];
 
 const MenuDropdown = () => {
@@ -62,6 +63,8 @@ const MenuDropdown = () => {
           document.location.href = '/admin/productlist';
         } else if (obj.value === 'orders') {
           document.location.href = '/admin/orderlist';
+        } else if (obj.value === 'text') {
+          document.location.href = '/admin/textedit';
         }
         break;
       default:

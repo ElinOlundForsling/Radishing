@@ -27,8 +27,8 @@ const LoginScreen = ({ location, history }) => {
     dispatch(login(email, password));
   };
   return (
-    <div className='login-container'>
-      <div className='login-wrapper'>
+    <div className='form-container'>
+      <div className='form-wrapper form-center'>
         <h2>Sign in</h2>
         {error && (
           <Alert type='warning' expire={4000}>

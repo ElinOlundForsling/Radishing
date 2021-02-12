@@ -12,7 +12,7 @@
   --success: #c0caad;
   --success-dark: #9da9a0;
   --info: #a3c7e4;
-  --info-dark: #a3c7e4;
+  --info-dark: #49789e;
   --highlight: #cec075;
   --var(--bg2): #222;
   --main-text: 'Nunito', sans-serif;
@@ -106,6 +106,7 @@ h6 {
 p {
   margin-top: 0px;
   margin-bottom: 2.5rem;
+  white-space: pre-line;
 }
 
 small,

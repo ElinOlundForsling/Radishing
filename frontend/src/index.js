@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './stylesheets/style.css';
 import './stylesheets/gallery.css';
-import './stylesheets/login.css';
+import './stylesheets/form.css';
 import './stylesheets/card.css';
 import './stylesheets/checkoutSteps.css';
 import './stylesheets/footer.css';

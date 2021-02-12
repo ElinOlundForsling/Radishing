@@ -48,8 +48,8 @@ const UserEditScreen = ({ match, history }) => {
     }
   };
   return (
-    <div className='login-container'>
-      <div className='login-wrapper'>
+    <div className='form-container'>
+      <div className='form-wrapper'>
         <Link to='/admin/userList'>Go back</Link>
         <h2>Edit User</h2>
         {loadingUpdate && <Spinner />}

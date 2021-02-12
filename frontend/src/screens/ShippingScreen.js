@@ -33,8 +33,8 @@ const ShippingScreen = ({ history }) => {
     }
   };
   return (
-    <div className='login-container'>
-      <div className='login-wrapper'>
+    <div className='form-container'>
+      <div className='form-wrapper'>
         <CheckoutSteps step={3} />
         <h2>Shipping</h2>
         {message && (

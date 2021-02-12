@@ -19,7 +19,7 @@
 }
 
 .profile-update input,
-button {
+.profile-update button {
   padding: 10px;
   font-family: var(--main-text);
   letter-spacing: 0.05rem;

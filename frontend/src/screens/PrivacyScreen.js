@@ -1,13 +1,24 @@
 import React from 'react';
+import Alert from '../components/Alert';
+import Spinner from '../components/Spinner';
+import { useSelector } from 'react-redux';
 
 const PrivacyScreen = () => {
+  const textContent = useSelector(state => state.textContent);
+  const { loading, error, privacy } = textContent;
   return (
-    <div>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque corporis
-      consectetur deleniti neque culpa vel magni deserunt sit officia, fugiat
-      quidem impedit inventore possimus aliquam voluptatum nobis, obcaecati
-      perspiciatis laudantium?
-    </div>
+    <>
+      <h2>Köpvillkor</h2>
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <Alert type='warning' expire={0}>
+          Kunde inte ladda köpvilkoren, försökt igen
+        </Alert>
+      ) : (
+        <p>{privacy}</p>
+      )}
+    </>
   );
 };
 

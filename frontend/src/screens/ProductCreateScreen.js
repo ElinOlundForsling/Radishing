@@ -75,8 +75,8 @@ const ProductCreateScreen = ({ match, history }) => {
   };
 
   return (
-    <div className='login-container'>
-      <div className='login-wrapper'>
+    <div className='form-container'>
+      <div className='form-wrapper'>
         <Link to='/admin/productList'>Go back</Link>
         <h2>Create Product</h2>
         {loadingCreate && <Spinner />}
