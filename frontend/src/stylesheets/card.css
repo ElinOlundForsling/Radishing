@@ -1,6 +1,6 @@
 .card {
   flex: 0 1 30%;
-  background: white;
+  background: var(--bg-card);
   min-width: 300px;
   margin-bottom: 2em;
   border-radius: 10px;
@@ -10,7 +10,7 @@
 }
 
 .card a {
-  color: black;
+  color: var(--dark);
   text-decoration: none;
 }
 
@@ -36,7 +36,7 @@
 
 .card-price {
   font-size: 1.2rem;
-  border-bottom: solid 1px var(--dark-khaki);
+  border-bottom: solid 1px var(--highlight);
   padding-right: 8px;
   padding-bottom: 8px;
   padding-top: 8px;
@@ -45,7 +45,7 @@
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 50%,
-    var(--dark-khaki) 50%
+    var(--highlight) 50%
   );
 }
 

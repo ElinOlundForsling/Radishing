@@ -27,7 +27,7 @@ const HomeScreen = ({ match }) => {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <Alert color='red' expire={0}>
+        <Alert type='warning' expire={0}>
           Error: {error}
         </Alert>
       ) : (

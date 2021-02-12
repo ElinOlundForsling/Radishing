@@ -52,13 +52,19 @@ const UserEditScreen = ({ match, history }) => {
       <div className='login-wrapper'>
         <Link to='/admin/userList'>Go back</Link>
         <h2>Edit User</h2>
+        {loadingUpdate && <Spinner />}
+        {errorUpdate && (
+          <Alert type='warning' expire={4000}>
+            {errorUpdate}
+          </Alert>
+        )}
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             Error: {error}
           </Alert>
         )}

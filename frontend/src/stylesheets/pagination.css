@@ -9,17 +9,17 @@
 
 .pagination button {
   padding: 10px 20px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--link);
   background-color: transparent;
-  color: var(--blue);
+  color: var(--link);
 }
 
 .pagination button:hover {
-  border: 2px solid var(--dark-green);
-  background-color: var(--dark-green);
+  border: 2px solid var(--link-hover);
+  background-color: var(--link-hover);
 }
 
 .pagination button:hover:disabled {
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--link-hover);
   background-color: transparent;
 }

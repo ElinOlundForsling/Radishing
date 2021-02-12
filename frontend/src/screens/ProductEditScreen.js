@@ -91,15 +91,21 @@ const ProductEditScreen = ({ match, history }) => {
   return (
     <div className='login-container'>
       <div className='login-wrapper'>
+        {loadingUpdate && <Spinner />}
+        {errorUpdate && (
+          <Alert type='warning' expire={4000}>
+            {errorUpdate}
+          </Alert>
+        )}
         <Link to='/admin/productList'>Go back</Link>
         <h2>Edit Product</h2>
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             Error: {error}
           </Alert>
         )}

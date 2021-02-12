@@ -40,7 +40,7 @@ const PaymentScreen = ({ history }) => {
         <CheckoutSteps step={4} />
         <h2>Payment</h2>
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}

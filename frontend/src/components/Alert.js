@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const Alert = ({ color, expire, children }) => {
+const Alert = ({ type, expire, children }) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const Alert = ({ color, expire, children }) => {
     }
   }, [expire]);
 
-  return visible && <div className={`alert alert-${color}`}>{children}</div>;
+  return visible && <div className={`alert alert-${type}`}>{children}</div>;
 };
 
 Alert.defaultProps = {

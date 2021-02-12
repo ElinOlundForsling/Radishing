@@ -44,11 +44,11 @@ const ProductListScreen = ({ history, match }) => {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <Alert color='red' expire={0}>
+        <Alert type='warning' expire={0}>
           {error}
         </Alert>
       ) : errorDelete ? (
-        <Alert color='red' expire={0}>
+        <Alert type='warning' expire={0}>
           {errorDelete}
         </Alert>
       ) : (

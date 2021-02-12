@@ -61,17 +61,17 @@ const ProfileScreen = ({ history }) => {
         <h2>Update Profile</h2>
         <form>
           {message && (
-            <Alert color='red' expire={4000}>
+            <Alert type='warning' expire={4000}>
               {message}
             </Alert>
           )}
           {updateMessage && (
-            <Alert color='green' expire={4000}>
+            <Alert type='success' expire={4000}>
               Profile Updated
             </Alert>
           )}
           {error && (
-            <Alert color='red' expire={4000}>
+            <Alert type='warning' expire={4000}>
               Error: {error}
             </Alert>
           )}
@@ -115,7 +115,7 @@ const ProfileScreen = ({ history }) => {
         {loadingOrders ? (
           <Spinner />
         ) : errorOrders ? (
-          <Alert color='red' expire={0}>
+          <Alert type='warning' expire={0}>
             {errorOrders}
           </Alert>
         ) : (

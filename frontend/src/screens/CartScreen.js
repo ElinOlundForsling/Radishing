@@ -27,7 +27,7 @@ const CartScreen = ({ match, location, history }) => {
     <div className='cart-container'>
       <section className='cart-list'>
         {cartItems.length < 1 ? (
-          <Alert color='yellow' expire={0}>
+          <Alert type='info' expire={0}>
             No items in cart. &nbsp;<Link to='/'>Go back</Link>
           </Alert>
         ) : (

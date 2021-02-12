@@ -21,7 +21,7 @@
 }
 
 .place-order-product:nth-child(2n) {
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
 }
 
 .place-order-product span {

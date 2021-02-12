@@ -35,5 +35,5 @@ button {
 }
 
 .order-table tr:nth-child(even) {
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
 }

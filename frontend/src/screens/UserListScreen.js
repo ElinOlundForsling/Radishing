@@ -37,7 +37,7 @@ const UserListScreen = ({ history }) => {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <Alert color='red' expire={0}>
+        <Alert type='warning' expire={0}>
           {error}
         </Alert>
       ) : (

@@ -20,7 +20,7 @@ const ProductCreateScreen = ({ match, history }) => {
   const dispatch = useDispatch();
 
   const productDetails = useSelector(state => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const { loading, error } = productDetails;
 
   const productCreate = useSelector(state => state.productCreate);
   const {
@@ -79,13 +79,19 @@ const ProductCreateScreen = ({ match, history }) => {
       <div className='login-wrapper'>
         <Link to='/admin/productList'>Go back</Link>
         <h2>Create Product</h2>
+        {loadingCreate && <Spinner />}
+        {errorCreate && (
+          <Alert type='warning' expire={4000}>
+            {errorCreate}
+          </Alert>
+        )}
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             Error: {error}
           </Alert>
         )}

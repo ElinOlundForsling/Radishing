@@ -74,7 +74,7 @@ const PlaceOrderScreen = ({ history }) => {
         <CheckoutSteps step={5} />
         <h2>Place Order</h2>
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {error}
           </Alert>
         )}
@@ -82,7 +82,7 @@ const PlaceOrderScreen = ({ history }) => {
       <div className='cart-container'>
         <section className='cart-list'>
           {message && (
-            <Alert color='red' expire={4000}>
+            <Alert type='warning' expire={4000}>
               {message}
             </Alert>
           )}

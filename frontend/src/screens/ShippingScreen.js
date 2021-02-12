@@ -38,7 +38,7 @@ const ShippingScreen = ({ history }) => {
         <CheckoutSteps step={3} />
         <h2>Shipping</h2>
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}

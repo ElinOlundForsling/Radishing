@@ -7,20 +7,17 @@
   margin: 10px auto;
 }
 
-.alert-yellow {
-  background-color: var(--dark-khaki);
+.alert-success {
+  color: var(--success-dark);
+  background-color: var(--success);
 }
 
-.alert-blue {
-  background-color: var(--blue);
-  color: #fff;
+.alert-info {
+  color: var(--info-dark);
+  background-color: var(--info);
 }
 
-.alert-red {
-  background-color: var(--cooper);
-  color: #fff;
-}
-
-.alert-green {
-  background-color: var(--light-green);
+.alert-warning {
+  color: var(--warning-dark);
+  background-color: var(--warning);
 }

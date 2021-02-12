@@ -6,7 +6,7 @@
   display: flex;
   justify-content: space-between;
   height: var(--height-lg-screens);
-  background-color: var(--mid-grey);
+  background-color: var(--dark);
 }
 
 .navbar-links {
@@ -32,24 +32,24 @@
 }
 
 .navbar-link {
-  border-bottom: 2px solid var(--mid-grey);
+  border-bottom: 2px solid var(--dark);
 }
 
 .navbar-link:hover {
-  border-bottom-color: var(--dark-khaki);
+  border-bottom-color: var(--highlight);
 }
 
 .toggle {
   display: none;
   padding: 8px;
   font-size: 16px;
-  background-color: var(--mid-grey);
+  background-color: var(--dark);
   border: none;
 }
 .toggle:active,
 .toggle:focus,
 .toggle:hover {
-  background-color: var(--mid-grey) !important;
+  background-color: var(--dark) !important;
   outline: none;
 }
 
@@ -79,8 +79,8 @@
   width: auto;
   margin-right: 10px;
   border-radius: 3px;
-  border: 1px solid var(--mid-grey);
-  background-color: var(--mid-grey);
+  border: 1px solid var(--dark);
+  background-color: var(--dark);
   cursor: pointer;
 }
 .custom-dropdown p {
@@ -92,9 +92,9 @@
 .custom-dropdown .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--mid-grey);
+  background-color: var(--dark);
   z-index: 1;
-  border: 1px solid var(--mid-grey);
+  border: 1px solid var(--dark);
   width: 100%;
   top: 40px;
   left: -1px;
@@ -104,7 +104,7 @@
   overflow-y: auto;
 }
 .custom-dropdown .dropdown-content button {
-  background-color: var(--mid-grey);
+  background-color: var(--dark);
   color: #fff;
   border: none;
   font-weight: 300;
@@ -117,8 +117,8 @@
   -moz-transition: all 0.4s;
 }
 .custom-dropdown .dropdown-content button:hover {
-  background-color: var(--dark-green);
-  color: var(--mid-grey);
+  background-color: var(--dark-link-hover);
+  color: var(--dark);
 }
 .custom-dropdown.show .dropdown-content {
   display: block;
@@ -140,7 +140,7 @@
 }
 
 .searchbox input {
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
   border-radius: 5px 0px 0px 5px;
   font-family: var(--text-main);
 }
@@ -157,7 +157,7 @@
   .Navbar {
     flex-direction: column;
     height: auto;
-    background-color: var(--mid-grey);
+    background-color: var(--dark);
   }
 
   .navbar-links {

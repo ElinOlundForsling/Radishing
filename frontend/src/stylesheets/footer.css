@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: var(--mid-grey);
+  background-color: var(--dark);
   margin: 0px;
   height: 100px;
   flex-shrink: 0;
-  color: #f1f1f1;
+  color: var(--bg);
   padding: 10px;
 }
 
@@ -16,11 +16,11 @@
 }
 
 .footer a {
-  color: var(--dark-green);
+  color: var(--dark-link);
 }
 
 .footer a:hover {
-  color: var(--dark-khaki);
+  color: var(--dark-link-hover);
 }
 
 .footer section {

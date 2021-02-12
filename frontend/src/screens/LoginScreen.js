@@ -31,7 +31,7 @@ const LoginScreen = ({ location, history }) => {
       <div className='login-wrapper'>
         <h2>Sign in</h2>
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             Error: {error}
           </Alert>
         )}

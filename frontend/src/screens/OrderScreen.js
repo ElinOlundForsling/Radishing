@@ -34,10 +34,18 @@ const OrderScreen = ({ match, history }) => {
   const { order, loading, error } = orderDetails;
 
   const orderPay = useSelector(state => state.orderPay);
-  const { loading: loadingPay, success: successPay } = orderPay;
+  const {
+    loading: loadingPay,
+    success: successPay,
+    error: errorPay,
+  } = orderPay;
 
   const orderDeliver = useSelector(state => state.orderDeliver);
-  const { loading: loadingDeliver, success: successDeliver } = orderDeliver;
+  const {
+    loading: loadingDeliver,
+    success: successDeliver,
+    error: errorDeliver,
+  } = orderDeliver;
 
   const userLogin = useSelector(state => state.userLogin);
   const { userInfo } = userLogin;
@@ -79,7 +87,7 @@ const OrderScreen = ({ match, history }) => {
         setSdkReady(true);
       }
     }
-  }, [dispatch, successPay, successDeliver, order, orderId]);
+  }, [dispatch, successPay, successDeliver, order, orderId, history, userInfo]);
 
   const handleSuccess = paymentResult => {
     console.log(paymentResult);
@@ -92,10 +100,22 @@ const OrderScreen = ({ match, history }) => {
 
   return (
     <>
+      {loadingDeliver && <Spinner />}
+      {errorDeliver && (
+        <Alert type='warning' expire={4000}>
+          {errorDeliver}
+        </Alert>
+      )}
+      {loadingPay && <Spinner />}
+      {errorPay && (
+        <Alert type='warning' expire={4000}>
+          {errorPay}
+        </Alert>
+      )}
       {loading ? (
         <Spinner />
       ) : error ? (
-        <Alert color='red' expire={0}>
+        <Alert type='warning' expire={0}>
           {error}
         </Alert>
       ) : (
@@ -103,7 +123,7 @@ const OrderScreen = ({ match, history }) => {
           <div className='checkout-wrapper'>
             <h2>Order {order._id}</h2>
             {error && (
-              <Alert color='red' expire={4000}>
+              <Alert type='warning' expire={4000}>
                 {error}
               </Alert>
             )}
@@ -111,7 +131,7 @@ const OrderScreen = ({ match, history }) => {
           <div className='cart-container'>
             <section className='cart-list'>
               {message && (
-                <Alert color='red' expire={4000}>
+                <Alert type='warning' expire={4000}>
                   {message}
                 </Alert>
               )}
@@ -121,11 +141,11 @@ const OrderScreen = ({ match, history }) => {
                 {order.shippingAddress.postcode} {order.shippingAddress.city}{' '}
                 {order.shippingAddress.extra}
                 {order.isDelivered ? (
-                  <Alert color='green' expire={0}>
+                  <Alert type='success' expire={0}>
                     Skickad
                   </Alert>
                 ) : (
-                  <Alert color='red' expire={0}>
+                  <Alert type='warning' expire={0}>
                     Inte skickad
                   </Alert>
                 )}
@@ -135,11 +155,11 @@ const OrderScreen = ({ match, history }) => {
                 <h4>Betalning</h4>
                 <b>Betalningsmetod:</b> {order.paymentMethod}
                 {order.isPaid ? (
-                  <Alert color='green' expire={0}>
+                  <Alert type='success' expire={0}>
                     Betalad den {order.paidAt}
                   </Alert>
                 ) : (
-                  <Alert color='red' expire={0}>
+                  <Alert type='warning' expire={0}>
                     Inte betalad
                   </Alert>
                 )}

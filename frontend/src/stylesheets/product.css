@@ -34,11 +34,11 @@
   padding-right: 5px;
   margin-bottom: 0px;
   text-indent: 10px;
-  border-bottom: solid 1px var(--dark-khaki);
+  border-bottom: solid 1px var(--highlight);
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 70%,
-    var(--dark-khaki) 30%
+    var(--highlight) 30%
   );
 }
 

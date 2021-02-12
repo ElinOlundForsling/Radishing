@@ -1,18 +1,23 @@
 :root {
-  --background: #f9f9f9;
-  --mid-grey: #4a4a4a;
-  --dark-grey: #222;
-  --light-green: #c0caad;
-  --dark-green: #9da9a0;
-  --dark-rose: #654c4f;
-  --cooper: #b26e63;
-  --dark-khaki: #cec075;
-  --blue: #2c8898;
+  --bg: #f9f9f9;
+  --bg-card: #ffffff;
+  --bg2: #f1f1f1;
+  --dark: #4a4a4a;
+  --link: #2c8898;
+  --link-hover: #35a5b8;
+  --dark-link: #2c8898;
+  --dark-link-hover: #35a5b8;
+  --warning: #ecb9b1;
+  --warning-dark: #b26e63;
+  --success: #c0caad;
+  --success-dark: #9da9a0;
+  --info: #a3c7e4;
+  --info-dark: #a3c7e4;
+  --highlight: #cec075;
+  --var(--bg2): #222;
   --main-text: 'Nunito', sans-serif;
   --headlines: 'Roboto Slab', serif;
 }
-
-/* bg (f9f9f9), bg2(f1f1f1) white (ffffff), dark (4a4a4a), link (2c8898), link hover (35A5B8), dark link (2c8898), dark link hover (35A5B8), danger, info, success, highlight */
 
 #root {
   height: 100%;
@@ -24,8 +29,8 @@ html,
 body {
   margin: 0px;
   padding: 0px;
-  color: var(--mid-grey);
-  background-color: var(--background);
+  color: var(--dark);
+  background-color: var(--bg);
   font-family: var(--main-text);
   font-weight: 300;
   height: 100%;
@@ -37,12 +42,12 @@ main {
 }
 
 nav {
-  background: var(--dark-grey);
+  background: var(--dark);
   padding: 0 15px;
 }
 
 a {
-  color: var(--background);
+  color: var(--bg);
   text-decoration: none;
 }
 
@@ -118,7 +123,7 @@ hr {
 
 a {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--link);
 }
 a:hover {
   color: var(--dark-green);
@@ -141,9 +146,9 @@ blockquote {
   padding-top: 0.8em;
   padding-bottom: 0.8em;
   padding-right: 0.8em;
-  border-left: 5px solid var(--blue);
+  border-left: 5px solid var(--link);
   margin-bottom: 2.5rem;
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
 }
 
 blockquote p {
@@ -152,7 +157,7 @@ blockquote p {
 
 /* Pre and Code */
 pre {
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
   display: block;
   padding: 1em;
   overflow-x: auto;
@@ -163,7 +168,7 @@ pre {
 code {
   font-size: 0.9em;
   padding: 0 0.5em;
-  background-color: #f1f1f1;
+  background-color: var(--bg2);
   white-space: pre-wrap;
 }
 
@@ -183,7 +188,7 @@ table {
 td,
 th {
   padding: 0.5em;
-  border-bottom: 1px solid #f1f1f1;
+  border-bottom: 1px solid var(--bg2);
 }
 
 /* Buttons, forms and input */
@@ -193,7 +198,7 @@ textarea {
 }
 input:focus,
 textarea:focus {
-  border: 1px solid var(--blue);
+  border: 1px solid var(--link);
 }
 
 textarea {
@@ -212,10 +217,10 @@ input[type='button'] {
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  background-color: var(--blue);
-  color: var(--background);
+  background-color: var(--link);
+  color: var(--bg);
   border-radius: 1px;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--link);
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -237,21 +242,21 @@ input[type='reset']:focus:enabled,
 input[type='reset']:hover:enabled,
 input[type='button']:focus:enabled,
 input[type='button']:hover:enabled {
-  background-color: var(--cooper);
-  border-color: var(--cooper);
-  color: var(--background);
+  background-color: var(--link-hover);
+  border-color: var(--link-hover);
+  color: var(--bg);
   outline: 0;
 }
 
 textarea,
 select,
 input[type] {
-  color: var(--mid-grey);
+  color: var(--dark);
   padding: 6px 10px;
   /* The 6px vertically centers text on FF, ignored by Webkit */
   margin-bottom: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #f1f1f1;
+  background-color: var(--bg2);
+  border: 1px solid var(--bg2);
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;
@@ -259,12 +264,12 @@ input[type] {
 textarea:focus,
 select:focus,
 input[type]:focus {
-  border: 1px solid var(--blue);
+  border: 1px solid var(--link);
   outline: 0;
 }
 
 input[type='checkbox']:focus {
-  outline: 1px dotted var(--blue);
+  outline: 1px dotted var(--link);
 }
 
 label,
@@ -372,7 +377,7 @@ fieldset {
   font-style: italic;
   top: 0;
   left: 0;
-  background: #f1f1f1;
+  background: var(--bg2);
   padding: 10px 15px;
   display: block;
   width: calc(100% - 40px);
@@ -380,7 +385,7 @@ fieldset {
   z-index: 20;
   height: 20px;
   line-height: 20px;
-  color: var(--mid-grey);
+  color: var(--dark);
   border-radius: 5px 10px 10px 5px;
 }
 .file-upload-wrapper:before {

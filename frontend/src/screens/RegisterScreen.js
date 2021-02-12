@@ -38,12 +38,12 @@ const RegisterScreen = ({ location, history }) => {
       <div className='login-wrapper'>
         <h2>Register</h2>
         {message && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             {message}
           </Alert>
         )}
         {error && (
-          <Alert color='red' expire={4000}>
+          <Alert type='warning' expire={4000}>
             Error: {error}
           </Alert>
         )}

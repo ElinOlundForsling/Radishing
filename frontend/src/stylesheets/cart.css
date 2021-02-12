@@ -17,7 +17,7 @@
 
 .cart-checkout p {
   font-size: 1.2rem;
-  border-bottom: solid 1px var(--dark-khaki);
+  border-bottom: solid 1px var(--highlight);
   padding-right: 8px;
   padding-bottom: 8px;
   padding-top: 8px;
@@ -27,7 +27,7 @@
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0) 50%,
-    var(--dark-khaki) 50%
+    var(--highlight) 50%
   );
 }
 
@@ -64,7 +64,7 @@
 .cart-qty input {
   width: 60px;
   padding: 10px;
-  border: 1px solid var(--blue);
+  border: 1px solid var(--link);
 }
 
 .cart-price {
@@ -77,19 +77,19 @@
 
 .cart-item-delete button {
   background-color: transparent;
-  color: var(--blue);
+  color: var(--link);
   border: none;
   font-size: 1.2rem;
 }
 
 .cart-item-delete button:hover {
   background-color: transparent;
-  color: var(--cooper);
+  color: var(--link-hover);
   border: none;
 }
 
 .cart-item-delete button:focus {
   background-color: transparent;
-  color: var(--cooper);
+  color: var(--link-hover);
   border: none;
 }
