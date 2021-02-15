@@ -15,6 +15,18 @@ const storage = multer.diskStorage({
   },
 });
 
+const staticStorage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, 'uploads/static/');
+  },
+  filename(req, file, cb) {
+    cb(
+      null,
+      `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`,
+    );
+  },
+});
+
 function checkFileType(file, cb) {
   const filetypes = /jpg|jpeg|png/;
   const extname = filetypes.toLocaleString(
@@ -36,7 +48,19 @@ const upload = multer({
   },
 });
 
+const uploadStatic = multer({
+  staticStorage,
+  fileFilter: function (req, file, cb) {
+    checkFileType(file, cb);
+  },
+});
+
+router.post('/:id', uploadStatic.single('image'), (req, res) => {
+  res.send(`/${req.file.path}`);
+});
+
 router.post('/', upload.single('image'), (req, res) => {
+  console.log(req.url);
   res.send(`/${req.file.path}`);
 });
 

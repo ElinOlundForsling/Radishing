@@ -114,12 +114,12 @@ const ProductCreateScreen = ({ match, history }) => {
             onChange={e => setPrice(e.target.value)}
           />
           <div
-            class='file-upload-wrapper'
+            className='file-upload-wrapper'
             data-text={image ? image : 'Select image!'}>
             <input
               name='file-upload-field'
               type='file'
-              class='file-upload-field'
+              className='file-upload-field'
               value=''
               onChange={handleUpload}
             />
