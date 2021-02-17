@@ -86,6 +86,11 @@ const TextEditScreen = () => {
   return (
     <div className='form-container'>
       <div className='form-wrapper'>
+        {message && (
+          <Alert type='warning' expire={4000}>
+            {message}
+          </Alert>
+        )}
         {loading ? (
           <Spinner />
         ) : error ? (
@@ -114,6 +119,7 @@ const TextEditScreen = () => {
                 value={aboutText}
                 onChange={e => setAboutText(e.target.value)}
               />
+              {uploading && <Spinner />}
               <div
                 className='file-upload-wrapper'
                 data-text={aboutImage ? aboutImage : 'Bild till Om Torvan'}>

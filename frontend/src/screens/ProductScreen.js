@@ -1,20 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProductDetails } from '../actions/productActions';
+import {
+  listProductDetails,
+  createProductReview,
+} from '../actions/productActions';
 import Rating from '../components/Rating';
+import Rate from '../components/Rate';
 import Spinner from '../components/Spinner';
 import Alert from '../components/Alert';
+import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
 
 const ProductScreen = ({ history, match }) => {
   const [amount, setAmount] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
+
   const dispatch = useDispatch();
   const productDetails = useSelector(state => state.productDetails);
   const { loading, error, product } = productDetails;
 
+  const userLogin = useSelector(state => state.userLogin);
+  const { userInfo } = userLogin;
+
+  const productReviewCreate = useSelector(state => state.productReviewCreate);
+  const {
+    success: successProductReview,
+    loading: loadingProductReview,
+    error: errorProductReview,
+  } = productReviewCreate;
+
   useEffect(() => {
-    dispatch(listProductDetails(match.params.id));
-  }, [match, dispatch]);
+    if (successProductReview) {
+      setRating(0);
+      setComment('');
+    }
+    if (!product._id || product._id !== match.params.id) {
+      dispatch(listProductDetails(match.params.id));
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+    }
+  }, [dispatch, match, successProductReview, product._id]);
 
   const handleChange = e => {
     if (
@@ -28,6 +53,16 @@ const ProductScreen = ({ history, match }) => {
 
   const handleAddToCart = () => {
     history.push(`/cart/${match.params.id}?qty=${amount}`);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch(
+      createProductReview(match.params.id, {
+        rating,
+        comment,
+      }),
+    );
   };
 
   return (
@@ -97,7 +132,56 @@ const ProductScreen = ({ history, match }) => {
           </section>
         </div>
       )}
-      <Link to='/'>Go back</Link>
+      <section>
+        <h3>Recensioner</h3>
+        {product.reviews.length === 0 && (
+          <Alert type='info' expire={0}>
+            Inga recensioner
+          </Alert>
+        )}
+        {product.reviews.map(review => {
+          return (
+            <div className='review' key={review._id}>
+              <strong>
+                {review.name} den <i>{review.createdAt.substring(0, 10)}</i>
+              </strong>
+              <p>{review.comment}</p>
+            </div>
+          );
+        })}
+        <hr />
+        <h4>Recensera produkten</h4>
+        {successProductReview && (
+          <Alert type='success'>Review submitted successfully</Alert>
+        )}
+        {loadingProductReview && <Spinner />}
+        {errorProductReview && (
+          <Alert type='warning'>{errorProductReview}</Alert>
+        )}
+        {userInfo ? (
+          <div className='form-wrapper'>
+            <form onSubmit={handleSubmit}>
+              <label>Betyg</label>
+              <Rate rating={rating} setRating={setRating} />
+              <label htmlFor='comment'>Kommentar</label>
+              <textarea
+                id='comment'
+                row='10'
+                value={comment}
+                onChange={e => setComment(e.target.value)}
+              />
+              <button type='submit'>Skicka</button>
+            </form>
+          </div>
+        ) : (
+          <Alert type='info'>
+            Please <Link to='/login'>sign in</Link> to write a review{' '}
+          </Alert>
+        )}
+      </section>
+      <p>
+        <Link to='/'>Go back</Link>
+      </p>
     </>
   );
 };

@@ -5,7 +5,7 @@ const router = express.Router();
 
 const storage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads/');
+    cb(null, `uploads/${req.params.id && `$req.params.id`}`);
   },
   filename(req, file, cb) {
     cb(
@@ -17,7 +17,7 @@ const storage = multer.diskStorage({
 
 const staticStorage = multer.diskStorage({
   destination(req, file, cb) {
-    cb(null, 'uploads/static/');
+    cb(null, 'uploads/');
   },
   filename(req, file, cb) {
     cb(
@@ -49,7 +49,7 @@ const upload = multer({
 });
 
 const uploadStatic = multer({
-  staticStorage,
+  storage,
   fileFilter: function (req, file, cb) {
     checkFileType(file, cb);
   },
@@ -60,7 +60,6 @@ router.post('/:id', uploadStatic.single('image'), (req, res) => {
 });
 
 router.post('/', upload.single('image'), (req, res) => {
-  console.log(req.url);
   res.send(`/${req.file.path}`);
 });
 
