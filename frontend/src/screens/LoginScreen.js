@@ -37,16 +37,20 @@ const LoginScreen = ({ location, history }) => {
         )}
         {loading && <Spinner />}
         <form>
+          <label htmlFor='email'>Email</label>
           <input
             type='email'
+            id='email'
             name='email'
             value={email}
             autoComplete='on'
             onChange={e => setEmail(e.target.value)}
           />
+          <label htmlFor='password'>Password</label>
           <input
             type='password'
             name='password'
+            id='password'
             value={password}
             autoComplete='on'
             onChange={e => setPassword(e.target.value)}

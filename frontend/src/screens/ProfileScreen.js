@@ -58,7 +58,7 @@ const ProfileScreen = ({ history }) => {
   return (
     <div className='profile-container'>
       <section className='profile-update'>
-        <h2>Update Profile</h2>
+        <h2>Uppdatera</h2>
         <form>
           {message && (
             <Alert type='warning' expire={4000}>
@@ -77,37 +77,45 @@ const ProfileScreen = ({ history }) => {
           )}
           {loading && <Spinner />}
 
+          <label htmlFor='namn'>För och efternamn</label>
           <input
             type='text'
             name='name'
+            id='name'
             value={name}
             autoComplete='on'
             onChange={e => setName(e.target.value)}
           />
+          <label htmlFor='email'>Email</label>
           <input
             type='email'
             name='email'
+            id='email'
             value={email}
             autoComplete='on'
             onChange={e => setEmail(e.target.value)}
           />
+          <label htmlFor='password'>Lösenord</label>
           <input
             type='password'
             name='password'
+            id='password'
             value={password}
             placeholder='New password'
             autoComplete='on'
             onChange={e => setPassword(e.target.value)}
           />
+          <label htmlFor='confirm-password'>Bekräfta lösenord</label>
           <input
             type='password'
             name='confirm-password'
+            id='confirm-password'
             value={confirmPassword}
             placeholder='Confirm new password'
             autoComplete='on'
             onChange={e => setConfirmPassword(e.target.value)}
           />
-          <button onClick={handleSubmit}>UPDATE PROFILE</button>
+          <button onClick={handleSubmit}>UPPDATERA KONTO</button>
         </form>
       </section>
       <section className='profile-orders'>

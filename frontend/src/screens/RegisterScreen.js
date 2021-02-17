@@ -49,6 +49,7 @@ const RegisterScreen = ({ location, history }) => {
         )}
         {loading && <Spinner />}
         <form>
+          <label htmlFor='name'>Förnamn och efternamn</label>
           <input
             type='text'
             name='name'
@@ -56,23 +57,29 @@ const RegisterScreen = ({ location, history }) => {
             autoComplete='on'
             onChange={e => setName(e.target.value)}
           />
+          <label htmlFor='email'>Email</label>
           <input
             type='email'
             name='email'
+            id='email'
             value={email}
             autoComplete='on'
             onChange={e => setEmail(e.target.value)}
           />
+          <label htmlFor='password'>Lösenord</label>
           <input
             type='password'
             name='password'
+            id='password'
             value={password}
             autoComplete='on'
             onChange={e => setPassword(e.target.value)}
           />
+          <label htmlFor='confirm-password'>Bekräfta lösenord</label>
           <input
             type='password'
             name='confirm-password'
+            id='confirm-password'
             value={confirmPassword}
             autoComplete='on'
             onChange={e => setConfirmPassword(e.target.value)}
